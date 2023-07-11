@@ -1,0 +1,15 @@
+baseURL = 'https://alancesar.dev/'
+languageCode = 'en-us'
+title = 'alancesar.dev'
+theme = 'paper'
+
+[params]
+    color = 'linen'
+
+    github = 'alancesar'
+    instagram = 'alanzao'
+    linkedin = 'alancesar'
+
+    avatar = 'alancesarelias@gmail.com'
+    name = 'Alan Cesar'
+    bio = 'Programador, fotógrafo e montador de Lego.'
