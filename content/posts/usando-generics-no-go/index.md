@@ -1,7 +1,6 @@
 ---
 title: Usando Generics no Go
 date: 2022-02-20T15:30:15.717Z
-featured: "images/featured.jpg"
 description: Sim, eles estão chegando. Confira como serão os tão aguardados generics em Go.
 ---
 Como todo mundo que trabalha com a linguagem deve saber, o Golang nasceu sem tratamento de tipos [genéricos](https://go.dev/doc/faq#generics). De fato, não era uma preocupação no momento, afinal, ele nasceu pra ser simples e performático e, infelizmente, esse tipo recurso não ajuda nisso. Porém, o Go evoluiu para além de pequenas aplicações executando processos pesados e hoje é encontrado em praticamente tudo: aplicações web, bibliotecas, CLIs e aquilo ignorado durante sua concepção começou a ser sentido pela sua crescente comunidade.
@@ -103,7 +102,7 @@ list.get(0).SomeMethodFromUser()
 
 Os *generics* estão disponíveis a partir da versão 1.18 do Go, que até o momento em que escrevo esse post ainda não está disponível oficialmente, porém não é complicado instalar a versão de testes. Se você utiliza o [Goland](https://www.jetbrains.com/pt-br/go/) ou [IntelliJ](https://www.jetbrains.com/idea/), basta apenas baixar pela própria IDE:
 
-![Usando o Go v1.18rc no IntelliJ](./images/intellij.png)
+![Usando o Go v1.18rc no IntelliJ](intellij.png)
 
 Ou se preferir, pela própria linha de comando:
 
@@ -475,4 +474,4 @@ func main() {
 }
 ```
 
-Então é isso, galera. Os *generics* são apenas um dos diversos recursos esperados na versão [1.18](https://tip.golang.org/doc/go1.18) da linguagem que está prevista pra sair ainda esse mês, mas eu chutaria só depois do carnaval 😛
+Então é isso, galera. Os *generics* são apenas um dos diversos recursos esperados na versão [1.18](https://tip.golang.org/doc/go1.18) da linguagem que está prevista para sair ainda esse mês, mas eu chutaria só depois do carnaval 😛

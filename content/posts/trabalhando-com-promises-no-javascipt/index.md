@@ -1,10 +1,8 @@
 ---
 title: Trabalhando com Promises no JavaScript
 date: "2017-01-14T12:00:00.0Z"
-featured: "images/featured.jpg"
 ---
-Uma das grandes novidades que vieram no *ES6* foram as `Promises`. Mas afinal, o que são? De onde vem?
-Do que se alimentam?
+Uma das grandes novidades que vieram no *ES6* foram as `Promises`. Mas afinal, o que são? De onde vem? Do que se alimentam?
 
 ### Promessa é dívida
 Promise vem do inglês, que significa promessa. E é mais ou menos isso: uma tarefa que é executada de forma

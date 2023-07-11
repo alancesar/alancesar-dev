@@ -1,9 +1,7 @@
 ---
 title: Um pouco sobre arquivos e o pacote io do Go
 date: 2021-11-13T15:20:34.121Z
-description: Trabalhar com arquivos em Golang pode parecer algo trivial, porém é
-  comum aparecer algumas dúvidas. Tentarei esclarecer algumas delas
-featured: "images/featured.jpg"
+description: Trabalhar com arquivos em Golang pode parecer algo trivial, porém é comum aparecer algumas dúvidas. Tentarei esclarecer algumas delas
 ---
 Trabalhar com arquivos em Golang pode parecer algo trivial, porém é comum aparecer algumas dúvidas. A maneira mais prática de abrir um arquivo é com o comando `os.Open()`:
 

@@ -1,12 +1,11 @@
 ---
 title: Introdução ao Webpack 2
 date: "2017-07-10T12:00:00.0Z"
-featured: "images/featured.jpg"
 ---
 
 O Webpack é um empacotador de código-fonte para projetos web. Diferente de outros similares, como o [browserify](http://browserify.org/), sua principal proposta é focar na modularização da aplicação. A justificativa até que é simples: para grandes projetos web, não é eficiente colocarmos todo código em um único arquivo, especialmente se alguns blocos de código forem necessários somente em algumas determinadas circunstâncias.
 
-![Diagrama do Webpack](./images/webpack.png)
+![Diagrama do Webpack](webpack.png)
 
 Dentre as principais características do Webpack temos:
 - code splitting;

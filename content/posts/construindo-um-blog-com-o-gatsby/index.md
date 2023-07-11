@@ -2,7 +2,6 @@
 title: Construindo um blog com o Gatsby
 date: "2021-02-04T12:50:05.158Z"
 description: "Como construir (e publicar) seu blog usando Gatsby em poucos passos"
-featured: "images/featured.jpg"
 ---
 
 Se você leu o rodapé desta página, percebeu que ela foi feita usando o [Gatsby](https://www.gatsbyjs.com/). Essa ferramenta foi uma das minhas gratas surpresas em 2020.
@@ -21,7 +20,7 @@ A documentação do Gatsby é muito boa, então não irei entrar em muitos detal
 
 O Gatsby tem o que ele chama de [starters](https://www.gatsbyjs.com/starters/?). São projetos *templates* dos quais você já pode clonar o repositório e deixar com a sua cara. Após escolher o modelo que mais lhe agrada, para não perder muito tempo, você pode procurar a sessão *Try this starter,* dentro da própria página do Gatsby, e clicar na opção *Netlify.*
 
-![Como publicar um starter do Gatsby no Netlify](./images/try-this-starter.png)
+![Como publicar um starter do Gatsby no Netlify](try-this-starter.png)
 
 Algumas configurações depois, você vai escolher um nome para o repositório. O Netlify vai criá-lo dentro da sua conta do GitHub (ou outro site de versionamento que você tenha escolhido). Eu recomendo deixar esse repositório privado, porque como será uma página exposta na internet, talvez você não queira alguém bisbilhotando. Paralelamente a isso, vai iniciar um deploy e disponibilizar uma URL dentro do domínio da plataforma. Clone esse repositório em sua máquina e, utilizando seu editor favorito (o meu é o [VSCode](https://code.visualstudio.com/)), procure o arquivo `gatsby-config.js`. Nele você encontrará algumas informações que talvez faça sentido alterar, como seu nome, título do site, redes sociais etc.
 

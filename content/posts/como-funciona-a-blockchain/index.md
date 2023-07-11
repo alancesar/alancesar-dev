@@ -2,7 +2,6 @@
 title: Como funciona a Blockchain
 date: "2018-05-01T22:12:03.284Z"
 description: "Quer aprender os conceitos básicos sobre o funcionamento da Blockchain, blocos, transações e geração de hash? Continue lendo!"
-featured: "images/featured.jpg"
 ---
 
 Blockchain é um tema bastante difundido na comunidade e apesar de ser algo revolucionário, no que diz respeito à recursos utilizados, basicamente são tecnologias que já existem há tempos, como sistemas distribuídos, comunicação P2P e criptografia. Quando olha-se pra ela com mais calma, a sensação que fica é de "por que não fizemos isso antes". Neste post, irei desmistificar alguns desses conceitos.
@@ -11,7 +10,7 @@ Blockchain é um tema bastante difundido na comunidade e apesar de ser algo revo
 
 O próprio nome já uma uma definição do que se trata: uma cadeia de blocos onde todos os blocos estão interligados:
 
-![Diagrama do Blockchain](./images/blockchain.png)
+![Diagrama do Blockchain](blockchain.png)
 
 Os blocos geralmente são constituídos por: suas transações; um hash; e o hash do bloco anterior.
 As transações são basicamente informações contidas neste bloco, indo de, informações em textos, snippets de código, no caso dos smart contracts da Ethereum ou até qualquer outra coisa que sua blockchain queira armazenar.

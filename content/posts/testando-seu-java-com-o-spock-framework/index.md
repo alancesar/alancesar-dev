@@ -1,7 +1,6 @@
 ---
 title: Testando seu Java com o Spock Framework
 date: "2021-02-11T12:00:00.0Z"
-featured: "images/featured.jpg"
 description: Testes unitários são um negócio chato e quem diz o contrário é porque quer se dar bem na entrevista. Pensando nisso, foi criado o Spock Framework.
 ---
 
@@ -270,7 +269,7 @@ Agora vamos entender esse código, lendo de baixo pra cima. O *where* possui dad
 
 O Groovy tem essa palavra chave `def`, que seria o `var` do Java, mas além de variáveis, também é possível declarar métodos que podem ser nomeados com uma `String`, ficando esse nome bem legível para o que estamos testando. Na declaração da classe, basta estender o `spock.lang.Specification` e todos esses recursos já ficam disponíveis e é uma boa prática nomear sua classe de teste com o sufixo `Spec`, de *specification*. Usando o [IntelliJ](https://www.jetbrains.com/pt-br/idea/), ao rodar esses testes, temos uma listagem bem intuitiva do que foi executado:
 
-![Resultado da execução do DiscountCalculatorSpec](./images/discount-calculator.png)
+![Resultado da execução do DiscountCalculatorSpec](discount-calculator.png)
 
 ## Indo um pouco além
 
@@ -444,7 +443,7 @@ with(basket) {
 
 Como saída temos:
 
-![Resultados da execução do BasketSpec](./images/basket.png)
+![Resultados da execução do BasketSpec](basket.png)
 
 E o método `setup()` foi chamado a cada execução. Se você duvida, adicione um log:
 

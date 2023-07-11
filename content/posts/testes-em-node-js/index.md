@@ -1,7 +1,6 @@
 ---
 title: Testes em Node.js
 date: "2017-12-15T12:00:00.0Z"
-featured: "images/featured.jpg"
 ---
 Dentre todas as técnicas que podem usadas para melhorar o código que escrevemos, uma que sempre merece destaque são os testes unitários. Neste artigo iremos tratar, através exemplos, como realizar testes unitários em uma aplicação Node.js. Como pré-requisito, você deve possuir um conhecimento básico em Node.js e alguma familiaridade com [ECMAScript 2015 (ES6)](http://www.ecma-international.org/ecma-262/6.0/). Apresentaremos alguns conceitos sobre testes unitários, tais como mocks e asserts.
 
