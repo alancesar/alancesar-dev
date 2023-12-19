@@ -3,15 +3,20 @@ title: Usando Generics no Go
 date: 2022-02-20T15:30:15.717Z
 description: Sim, eles estão chegando. Confira como serão os tão aguardados generics em Go.
 ---
-Como todo mundo que trabalha com a linguagem deve saber, o Golang nasceu sem tratamento de tipos [genéricos](https://go.dev/doc/faq#generics). De fato, não era uma preocupação no momento, afinal, ele nasceu pra ser simples e performático e, infelizmente, esse tipo recurso não ajuda nisso. Porém, o Go evoluiu para além de pequenas aplicações executando processos pesados e hoje é encontrado em praticamente tudo: aplicações web, bibliotecas, CLIs e aquilo ignorado durante sua concepção começou a ser sentido pela sua crescente comunidade.
+Como todo mundo que trabalha com a linguagem deve saber, o Golang nasceu sem tratamento de tipos [genéricos](https://go.dev/doc/faq#generics).
+De fato, não era uma preocupação no momento, afinal, ele nasceu pra ser simples e performático e, infelizmente, esse tipo recurso não ajuda nisso.
+Porém, o Go evoluiu para além de pequenas aplicações executando processos pesados e hoje é encontrado em praticamente tudo:
+aplicações web, bibliotecas, CLIs e aquilo ignorado durante sua concepção começou a ser sentido pela sua crescente comunidade.
 
 ## Afinal, o que são generics?
 
 Se você tem experiência com *generics* em outra linguagem, talvez esse tópico seja redundante, então não ficarei triste pular para o próximo.
 
-Diferente de linguagens baseadas em script, como JavaScript e Python, o Go é *[fortemente tipado](https://en.wikipedia.org/wiki/Strong_and_weak_typing)* (assim como Java, C#, entre outras). Isso significa que toda variável deve ser anotada com o seu tipo: inteiro, string e por aí vai.
+Diferente de linguagens baseadas em *script*, como JavaScript e Python, o Go é *[fortemente tipado](https://en.wikipedia.org/wiki/Strong_and_weak_typing)*
+(assim como Java, C#, entre outras). Isso significa que toda variável deve ser anotada com o seu tipo: inteiro, *string* e por aí vai.
 
-Pense em uma situação em que você precisa construir uma URL e precisa adicionar parâmetros a ela. Um jeito simples* seria utilizar o método abaixo (* _Apenas um exemplo, nunca construa URLs assim_ 😬).
+Pense em uma situação em que você precisa construir uma URL e precisa adicionar parâmetros a ela.
+Um jeito simples* seria utilizar o método abaixo (* *Apenas um exemplo, nunca construa URLs assim* 😬).
 
 ```go
 func AddParam(url, name, value string) string {
@@ -100,7 +105,9 @@ list.get(0).SomeMethodFromUser()
 
 ## Usando o Go 1.18
 
-Os *generics* estão disponíveis a partir da versão 1.18 do Go, que até o momento em que escrevo esse post ainda não está disponível oficialmente, porém não é complicado instalar a versão de testes. Se você utiliza o [Goland](https://www.jetbrains.com/pt-br/go/) ou [IntelliJ](https://www.jetbrains.com/idea/), basta apenas baixar pela própria IDE:
+Os *generics* estão disponíveis a partir da versão 1.18 do Go, que até o momento em que escrevo esse post ainda não está disponível oficialmente,
+porém não é complicado instalar a versão de testes. Se você utiliza o [Goland](https://www.jetbrains.com/pt-br/go/) ou [IntelliJ](https://www.jetbrains.com/idea/),
+basta apenas baixar pela própria IDE:
 
 ![Usando o Go v1.18rc no IntelliJ](intellij.png)
 
@@ -130,7 +137,7 @@ func NomeDoMetodo[NomeDoTipo Tipo](nomeDoPamametro NomeDoTipo) {
 }
 ```
 
-Confuso? Vamos reescrever nosso `AddParam` usando _generics_:
+Confuso? Vamos reescrever nosso `AddParam` usando *generics*:
 
 ```go
 func AddParam[T any](url, name string, value T) (string, error) {
@@ -143,14 +150,15 @@ func AddParam[T any](url, name string, value T) (string, error) {
 }
 ```
 
-De acordo com a própria documentação, `any` é um sinônimo para `interface{}`:
+Segundo a própria documentação, `any` é um sinônimo para `interface{}`:
 
 ```go
 // any is an alias for interface{} and is equivalent to interface{} in all ways.
 type any = interface{}
 ```
 
-Ou seja, nosso método funciona exatamente como funcionava anteriormente, mas não é exatamente para isso [que foi criado os *generics*](https://go.dev/blog/why-generics). Podemos definir qualquer tipo, que inclusive podem ser vários, o que nos permitiria remover a validação do parâmetro de entrada.
+Ou seja, nosso método funciona exatamente como funcionava anteriormente, mas não é exatamente para isso [que foi criado os *generics*](https://go.dev/blog/why-generics).
+Podemos definir qualquer tipo, que inclusive podem ser vários, o que nos permitiria remover a validação do parâmetro de entrada.
 
 ```go
 func AddParam[T string | int](url, name string, value T) string {
@@ -189,7 +197,8 @@ func AddParam[T ValidParam](url, name string, value T) string {
 
 ## E não para por aí
 
-A outra grande vantagem dos tipos genéricos e evitar fazer _cast_ excessivo entre tipos. Vamos imaginar uma aplicação que precise executar operações paralelas, como transferências de arquivos de uma lista de URLs, porém, por limitações do disco e da própria banda, queremos definir um número máximo de *workers* simultâneos.
+A outra grande vantagem dos tipos genéricos e evitar fazer *cast* excessivo entre tipos. Vamos imaginar uma aplicação que precise executar operações paralelas,
+como transferências de arquivos de uma lista de URLs, porém, por limitações do disco e da própria banda, queremos definir um número máximo de *workers* simultâneos.
 
 Entidade `Download`:
 
@@ -203,7 +212,7 @@ type (
 func (d Download) Download(_ context.Context) {
 	log.Printf("starting download from %s\n", d.url)
 
-  // Simulando o tempo de download
+    // Simulando o tempo de download
 	ms := rand.Intn(50) * 100
 	time.Sleep(time.Millisecond * time.Duration(ms))
 
@@ -238,7 +247,7 @@ func (w Worker) Work(ctx context.Context, items []Download) {
 
 	jobs := make(chan Download)
 
-  // Cria um número limitado de workers
+    // Cria um número limitado de workers
 	for i := 1; i <= w.buffer; i++ {
 		go func() {
 			for j := range jobs {
@@ -257,7 +266,7 @@ func (w Worker) Work(ctx context.Context, items []Download) {
 		jobs <- item
 	}
 
-  // Fecha o canal e espera até todos workers ocupados finalizarem.
+    // Fecha o canal e espera até todos workers ocupados finalizarem.
 	close(jobs)
 	wg.Wait()
 }
@@ -329,7 +338,7 @@ func (w Worker) Work(ctx context.Context, items []interface{}) {
 }
 ```
 
-E, fazendo os _casts_ necessários, temos:
+E, fazendo os *casts* necessários, temos:
 
 ```go
 func main() {
@@ -390,7 +399,6 @@ func (w Worker[T]) Work(ctx context.Context, items []T) {
    close(jobs)
    wg.Wait()
 }
-
 ```
 
 E nosso método `main()` volta a ser (quase) o que era:
@@ -474,4 +482,5 @@ func main() {
 }
 ```
 
-Então é isso, galera. Os *generics* são apenas um dos diversos recursos esperados na versão [1.18](https://tip.golang.org/doc/go1.18) da linguagem que está prevista para sair ainda esse mês, mas eu chutaria só depois do carnaval 😛
+Então é isso, galera. Os *generics* são apenas um dos diversos recursos esperados na versão [1.18](https://tip.golang.org/doc/go1.18)
+da linguagem que está prevista para sair ainda esse mês, mas eu chutaria só depois do carnaval 😛.
